@@ -1,5 +1,22 @@
 # tutorials-app
 
+
+# Clone the repository
+```bash
+git clone git@github.com:Ricardolv/tutorials-app.git && cd tutorials-app   
+mvn clean install -DskipTests 
+```
+
+# Maven
+```bash
+mvn clean install -DskipTests 
+```
+
+# Docker Compose
+```bash
+cd tutorials-app/docker && docker-compose up -d
+```
+
 ## Java
 [![java](docs/img/java17.png 'Java')](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 
