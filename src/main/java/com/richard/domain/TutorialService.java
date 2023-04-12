@@ -1,9 +1,13 @@
 package com.richard.domain;
 
+import com.richard.infrastructure.persistence.entity.QTutorialEntity;
 import com.richard.infrastructure.persistence.entity.TutorialEntity;
 import com.richard.infrastructure.persistence.repositories.TutorialEntityRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +28,12 @@ public class TutorialService {
         return tutorialEntityRepository.findByTitleContaining(title);
     }
 
+    public List<TutorialEntity> findByTitleContainingQueryDsl(String title) {
+        List<TutorialEntity> entities = new ArrayList<>();
+        tutorialEntityRepository.findAll(QTutorialEntity.tutorialEntity.title.eq(title)).forEach(entities::add);
+        return  entities;
+    }
+
     public List<TutorialEntity> findAll() {
         return tutorialEntityRepository.findAll();
     }
@@ -32,8 +42,12 @@ public class TutorialService {
         return tutorialEntityRepository.findById(id);
     }
 
-    public List<TutorialEntity> findByPublished(boolean published) {
-        return tutorialEntityRepository.findByPublished(true);
+    public Page<TutorialEntity> findByPublished(boolean published, Pageable pageable) {
+        return tutorialEntityRepository.findByPublished(published, pageable);
+    }
+
+    public Page<TutorialEntity> findByPublishedQueryDsl(boolean published, Pageable pageable) {
+        return tutorialEntityRepository.findAll(QTutorialEntity.tutorialEntity.published.eq(published), pageable);
     }
 
     public void deleteById(String id) {
@@ -52,4 +66,5 @@ public class TutorialService {
 
         return tutorialEntityOptional;
     }
+
 }

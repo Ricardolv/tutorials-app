@@ -7,6 +7,8 @@ import com.richard.infrastructure.resources.request.TutorialRequest;
 import com.richard.infrastructure.resources.response.TutorialResponse;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -70,13 +72,19 @@ public class TutorialResource {
     }
 
     @GetMapping("/published")
-    public ResponseEntity<List<TutorialResponse>> findByPublished() {
-        List<TutorialEntity> tutorials = tutorialService.findByPublished(true);
+    public ResponseEntity<Page<TutorialResponse>> findByPublished(Pageable pageable) {
 
-        if (tutorials.isEmpty()) {
-            return ResponseEntity.status(NO_CONTENT).build();
-        }
-        return ResponseEntity.ok(tutorialConverter.toCollectionResponse(tutorials));
+        final Page<TutorialEntity> tutorials = tutorialService.findByPublished(true, pageable);
+
+        return ResponseEntity.ok(tutorialConverter.toCollectionResponsePage(tutorials));
+    }
+
+    @GetMapping("/publishedQueryDsl")
+    public ResponseEntity<Page<TutorialResponse>> findByPublishedQueryDsl(Pageable pageable) {
+
+        final Page<TutorialEntity> tutorials = tutorialService.findByPublishedQueryDsl(true, pageable);
+
+        return ResponseEntity.ok(tutorialConverter.toCollectionResponsePage(tutorials));
     }
 
     @PutMapping("/{id}")

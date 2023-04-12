@@ -3,6 +3,7 @@ package com.richard.infrastructure.resources.converter;
 import com.richard.infrastructure.persistence.entity.TutorialEntity;
 import com.richard.infrastructure.resources.request.TutorialRequest;
 import com.richard.infrastructure.resources.response.TutorialResponse;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -27,5 +28,7 @@ public class TutorialConverter {
                 .collect(Collectors.toList());
     }
 
-
+    public Page<TutorialResponse> toCollectionResponsePage(Page<TutorialEntity> tutorials) {
+        return tutorials.map(this::toResponse);
+    }
 }
