@@ -1,18 +1,18 @@
 # tutorials-app
 
-
-# Clone the repository
+## Setup:
+Clone the repository
 ```bash
 git clone git@github.com:Ricardolv/tutorials-app.git && cd tutorials-app   
 mvn clean install -DskipTests 
 ```
 
-# Maven
+Maven
 ```bash
 mvn clean install -DskipTests 
 ```
 
-# Docker Compose
+Docker Compose
 ```bash
 cd tutorials-app/docker && docker-compose up -d
 ```
