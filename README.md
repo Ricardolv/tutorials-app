@@ -1,5 +1,11 @@
 # tutorials-app
 
+
+|                                                                                                       |                                                                                                           |                                                                                                   |
+|:-----------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------:|
+|     Java <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="docs/img/java17.png">     | Spring Boot <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="docs/img/springboot.png">  |  Lombok <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="docs/img/lombok.png">  |
+| MapStruct <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="docs/img/mapstruct.png"> | QueryDsl       <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="docs/img/querydsl.png"> | MongDb    <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="docs/img/mongo.png"> |
+
 ## Setup:
 Clone the repository
 ```bash
@@ -17,23 +23,8 @@ Docker Compose
 cd tutorials-app/docker && docker-compose up -d
 ```
 
-## Java
-[![java](docs/img/java17.png 'Java')](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-
-## Spring Boot
-[![springboot](docs/img/springboot.png 'Spring Boot')](https://spring.io/)
-
-## Lombok
-[![lombok](docs/img/lombok.png 'Lombok')](https://projectlombok.org/)
-
-## MapStruct
-[![MapStruct](docs/img/mapstruct.png 'MapStruct')](https://mapstruct.org/)
-
-## QueryDsl
-[![QueryDsl](docs/img/querydsl.png 'QueryDsl')](http://querydsl.com/)
-
-## MongoDb
-[![MongoDb](docs/img/mongo.png 'MongoDb')](https://www.mongodb.com/)
-
-
+Start project
+```bash
+mvn spring-boot:run
+```
 
